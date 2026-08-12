@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#30364F">
+    <meta name="description" content="Read an issue of Risman directly in your browser.">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Read — Risman">
+    <meta property="og:description" content="Read Risman, an independent psychology journal, online.">
+    <meta property="og:image" content="https://your-domain.example/assets/social/risman-og.jpg">
+    <meta property="og:url" content="https://your-domain.example/read/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://your-domain.example/read/">
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet">
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("risman-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Read — Risman</title>
+    <script defer src="../assets/js/issues-data.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+  </head>
+  <body class="reader-page" data-page="reader" data-root="..">
+    <a class="skip-link" href="#reader-content">Skip to reader</a>
+
+    <header class="reader-header">
+      <a class="wordmark reader-wordmark brand-lockup" href="../index.html" aria-label="Risman home">
+        <img class="brand-mark" src="../assets/icons/risman-mark.png" alt="" width="29" height="50">
+        <span class="brand-name">Risman<span class="wordmark-dot" aria-hidden="true">.</span></span>
+      </a>
+      <div class="reader-heading" id="reader-heading">
+        <span>Opening issue</span>
+        <strong>Please wait</strong>
+      </div>
+      <div class="reader-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><span class="theme-toggle-icon" aria-hidden="true"></span></button>
+        <a class="reader-close" href="../issues/" aria-label="Close reader and return to issues">Close <span aria-hidden="true">×</span></a>
+      </div>
+    </header>
+
+    <main id="reader-content" class="reader-content">
+      <div id="pdf-reader" class="pdf-reader" aria-live="polite">
+        <div class="reader-loading" role="status">
+          <span class="reader-loading-mark" aria-hidden="true"></span>
+          <p>Preparing the issue…</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
