@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#F0F0DB">
+    <meta name="theme-color" content="#F4F3EA">
     <meta name="description" content="About Risman, an independent journal of psychology, mind, and society.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="About — Risman">
@@ -15,32 +15,33 @@
     <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet">
-    <script>try{document.documentElement.dataset.theme=localStorage.getItem("risman-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Lalehzar&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;family=Vazirmatn:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("risman-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var _l=localStorage.getItem("risman-lang");if(_l==="fa"){document.documentElement.lang="fa";document.documentElement.dir="rtl"}}catch(e){}</script>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <title>About — Risman</title>
     <script defer src="../assets/js/issues-data.js"></script>
+    <script defer src="../assets/js/i18n.js"></script>
     <script defer src="../assets/js/main.js"></script>
   </head>
   <body data-page="about" data-root="..">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="skip-to-content">Skip to content</a>
 
     <header class="site-header">
       <div class="shell header-inner">
         <a class="wordmark brand-lockup" href="../index.html" aria-label="Risman home">
-          <img class="brand-mark" src="../assets/icons/risman-mark.png" alt="" width="29" height="50">
+          <img class="brand-mark" src="../assets/icons/risman-mark.png" alt="" width="26" height="44">
           <span class="brand-name">Risman<span class="wordmark-dot" aria-hidden="true">.</span></span>
         </a>
         <div class="header-actions">
           <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-            <a href="../index.html" data-nav="home">Home</a>
-            <a href="../issues/" data-nav="issues">Issues</a>
-            <a href="./" data-nav="about">About</a>
+            <a href="../index.html" data-nav="home" data-i18n="nav-home">Home</a>
+            <a href="../issues/" data-nav="issues" data-i18n="nav-issues">Issues</a>
+            <a href="./" data-nav="about" data-i18n="nav-about">About</a>
           </nav>
+          <button class="lang-toggle" type="button" aria-label="تغییر به فارسی">فا</button>
           <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><span class="theme-toggle-icon" aria-hidden="true"></span></button>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-            <span class="nav-toggle-label">Menu</span>
-            <span class="nav-toggle-mark" aria-hidden="true"></span>
+            <span class="nav-toggle-label" data-i18n="menu-label">Menu</span>
           </button>
         </div>
       </div>
@@ -49,48 +50,100 @@
     <main id="main-content">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-        <p class="eyebrow hero-enter hero-enter-1">About the journal</p>
-        <h1 class="page-title hero-enter hero-enter-2">A little about<br><em>Risman</em></h1>
-        <p class="page-deck hero-enter hero-enter-3">We all carry experiences, emotions, and feelings that become intertwined over time, like threads woven together to form the string of our being. 🧶</p>
-          </div>
+          <p class="eyebrow hero-enter hero-enter-1" data-i18n="about-eyebrow">About the journal</p>
+          <h1 class="page-title hero-enter hero-enter-2" data-i18n="about-title">A little about<br><em>Risman</em></h1>
+          <p class="page-deck hero-enter hero-enter-3" data-i18n="about-deck">We all carry experiences, emotions, and feelings that become intertwined over time, like threads woven together to form the string of our being. 🧶</p>
         </div>
 
+        <div class="hero-object map-section-wrapper hero-enter hero-enter-3">
+          <div class="map-header-crown">
+            <span class="eyebrow" data-i18n="origin-eyebrow">Origin</span>
+            <h2 class="map-header-title origin-globe" data-i18n="where-began">Where it all began.</h2>
+          </div>
+          <aside class="map-card" aria-label="Risman was founded in Tehran, Iran at SRBIAU">
+            <div class="map-card-header">
+              <div class="map-country-badge">
+                <div class="map-title-group">
+                  <span class="map-sub" data-i18n="map-sub">SRBIAU · Faculty of Humanities</span>
+                </div>
+              </div>
+              <div class="map-coord-pill">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span>35.7978° N · 51.3205° E</span>
+              </div>
+            </div>
+            
+            <div class="map-canvas-container">
+              <canvas id="tehran-map-canvas" class="dynamic-vector-map" aria-label="Dynamic Earth Globe and Map of Tehran pointing to Science and Research Branch"></canvas>
+              <div class="map-radar-pin" aria-hidden="true">
+                <div class="radar-ring"></div>
+                <div class="radar-ring"></div>
+                <div class="radar-core"></div>
+              </div>
+              <div class="map-floating-tag" aria-hidden="true">
+                <span data-i18n="map-tag-sub">Birthplace</span>
+                <strong data-i18n="map-tag-title">Faculty of Humanities</strong>
+              </div>
+            </div>
 
-        <aside class="hero-object location-panel hero-enter hero-enter-3" aria-label="Risman began in Tehran, Iran">
-          <div class="origin-globe" aria-hidden="true">
-            <span class="globe-meridian"></span>
-            <span class="globe-latitude"></span>
-            <span class="iran-marker"></span>
-            <span class="iran-label"><br>Tehran</span>
-          </div>
-          <p class="origin-caption">Where it all began<br></p>
-          <div class="location-meta">
-            <span>Tehran, Iran<br>SRBIAU<BR>Faculty of Humanities</span>
-            <span>35.6892° N<br>51.3890° E</span>
-          </div>
-        </aside>
+            <div class="map-controls-bar">
+              <div class="map-meta-tags">
+                <span data-i18n="map-meta-elev">1,780m ALT</span>
+              </div>
+              <div class="map-zoom-buttons">
+                <button id="map-btn-globe" class="map-btn active" type="button" data-i18n="map-btn-overview">From space</button>
+                <button id="map-btn-campus" class="map-btn" type="button" data-i18n="map-btn-campus">Even closer</button>
+              </div>
+            </div>
+            <div class="origin-globe" style="display:none" aria-hidden="true">Where it all began</div>
+          </aside>
+        </div>
       </section>
 
-      <section class="about-editorial shell section-space" aria-labelledby="about-risman-heading">
-        <aside class="about-aside">
-          <p class="eyebrow">Risman</p>
-          <p>A Bimonthly<br>Psychology<br>Journal</p>
-          <span aria-hidden="true">    ✧   </span>
-        </aside>
-        <div class="prose">
-          <h2 id="about-risman-heading">It all started on November 27th, 2023...</h2>
+      <div class="rope-divider shell" aria-hidden="true"><span>✧</span></div>
 
-          <p>Risman emerged from the intersection of a vital need for creative research environments and a personal aspiration to build an unprecedented intellectual space. It was established to offer a unique, creative, and multidisciplinary platform for intellectual exploration.</p>
+      <!-- ABOUT COPY START -->
+      <section class="about-editorial shell section-space" aria-labelledby="about-risman-heading">
+        <aside class="editorial-dossier-card">
+          <div class="dossier-seal-badge">
+            <span>✦</span> <span data-i18n="dossier-badge">Editorial Dossier</span>
+          </div>
+          <h3 class="dossier-title" data-i18n="dossier-title">Risman Journal</h3>
+          <p class="dossier-subtitle" data-i18n="dossier-subtitle">An independent bimonthly publication exploring psychology, consciousness, and social structures.</p>
+          <div class="dossier-stat-list">
+            <div class="dossier-stat-item">
+              <span class="dossier-stat-label" data-i18n="dossier-founding">Founded</span>
+              <span class="dossier-stat-val" data-i18n="dossier-date">Nov 27, 2023</span>
+            </div>
+            <div class="dossier-stat-item">
+              <span class="dossier-stat-label" data-i18n="dossier-campus-lbl">Campus</span>
+              <span class="dossier-stat-val">SRBIAU Tehran</span>
+            </div>
+            <div class="dossier-stat-item">
+              <span class="dossier-stat-label" data-i18n="dossier-freq-lbl">Frequency</span>
+              <span class="dossier-stat-val" data-i18n="dossier-freq-val">Bimonthly</span>
+            </div>
+            <div class="dossier-stat-item">
+              <span class="dossier-stat-label">ISSN</span>
+              <span class="dossier-stat-val">3041-8852</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="prose">
+          <h2 id="about-risman-heading" data-i18n="about-started">It all started on November 27th, 2023...</h2>
+
+          <p data-i18n="about-body-1">Risman emerged from the intersection of a vital need for creative research environments and a personal aspiration to build an unprecedented intellectual space. Our philosophy centers on transforming educational limitations into opportunities for creative and scientific synergy.</p>
 
           <blockquote>
-            <p>“We are all threads of the same string.”</p>
+            <p data-i18n="about-quote">"We are all threads of the same string."</p>
           </blockquote>
 
-          <h2>Fields of Focus</h2>
-          <p>Risman brings together perspectives from five core areas of psychology:<br>
+          <h2 data-i18n="about-fields-title">Fields of Focus</h2>
+          <p data-i18n="about-fields-body">Risman brings together perspectives from five core areas of psychology:<br>
 
             ✧ Cognitive Psychology<br>
-            ✧ Child & Adolescent Psychology<br>
+            ✧ Child &amp; Adolescent Psychology<br>
             ✧ Personality Psychology<br>
             ✧ General Psychology<br>
             ✧ Philosophy of Psychology<br>
@@ -103,10 +156,10 @@
       <section class="about-cta section-space" aria-labelledby="about-cta-heading">
         <div class="shell about-cta-inner">
           <div>
-            <p class="eyebrow">Continue reading</p>
-            <h2 id="about-cta-heading">Eight issues.<br>Eight different journeys.</h2>
+            <p class="eyebrow" data-i18n="continue-reading">Continue reading</p>
+            <h2 id="about-cta-heading" data-i18n="about-cta-heading">Eight issues.<br>Eight different journeys.</h2>
           </div>
-          <a class="button button-primary" href="../issues/">Browse the archive <span class="link-arrow" aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="../issues/"><span data-i18n="browse-archive">Browse the archive</span> <span class="link-arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
     </main>
@@ -115,13 +168,18 @@
       <div class="shell footer-grid">
         <div>
           <a class="wordmark footer-wordmark" href="../index.html">Risman<span aria-hidden="true">.</span></a>
+          <p data-i18n="footer-tagline">a psychology journal</p>
+          <div class="footer-social">
+            <a href="https://t.me/Rismanmagazine" target="_blank" rel="noopener" aria-label="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+            <a href="https://www.instagram.com/rismanmagazine?igsh=b21iMzVibHdpY3F6" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.03.084c-1.277.06-2.149.264-2.913.558a5.886 5.886 0 0 0-2.126 1.384A5.886 5.886 0 0 0 .607 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.149.558 2.913.306.789.718 1.459 1.384 2.126A5.886 5.886 0 0 0 4.14 23.393c.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.149-.262 2.913-.558a5.886 5.886 0 0 0 2.126-1.384 5.886 5.886 0 0 0 1.384-2.126c.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913a5.886 5.886 0 0 0-1.384-2.126A5.886 5.886 0 0 0 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0S8.333.015 7.053.072zM12 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227a3.81 3.81 0 0 1-.899 1.382 3.744 3.744 0 0 1-1.38.896c-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421a3.716 3.716 0 0 1-1.379-.899 3.644 3.644 0 0 1-.9-1.38c-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          </div>
         </div>
         <nav aria-label="Footer navigation">
-          <a href="../issues/">Issues</a>
-          <a href="./">About</a>
-          <a href="#main-content">Back to top <span class="link-arrow" aria-hidden="true">↑</span></a>
+          <a href="../issues/" data-i18n="footer-issues">Issues</a>
+          <a href="./" data-i18n="footer-about">About</a>
+          <a href="#main-content"><span data-i18n="back-to-top">Back to top</span> <span class="link-arrow" aria-hidden="true">↑</span></a>
         </nav>
-        <p class="copyright">© <span data-current-year>2026</span> Risman Journal.<br>All rights reserved.</p>
+        <p class="copyright">© <span data-current-year>2026</span> <span data-i18n="copyright-name">Risman Journal.</span><br><span data-i18n="copyright-rights">All rights reserved.</span></p>
       </div>
     </footer>
   </body>
