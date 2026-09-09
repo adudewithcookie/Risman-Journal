@@ -14,5 +14,7 @@ console.assert(html.every((page) => page.includes('rel="icon"') && page.includes
 console.assert(html.every((page) => !page.toLowerCase().includes("independent")), "No page should describe the journal as independent");
 console.assert(html.every((page) => !page.includes("Psychology · Mind · Society")), "Tagline 'Psychology · Mind · Society' must be removed");
 console.assert(html[1].includes("Nov 11, 2023"), "About page must have Nov 11, 2023 foundation date");
+console.assert(fs.existsSync("assets/icons/risman-nastaliq.png"), "Nastaliq calligraphy watermark asset must exist");
+console.assert(css.includes("risman-nastaliq.png") && css.includes("body::before"), "CSS must apply Nastaliq calligraphy watermark to body::before");
 
-console.log("Site feature check passed: theme, mark, origin globe, favicon, and brand tone verified.");
+console.log("Site feature check passed: theme, mark, origin globe, favicon, brand tone, and Nastaliq watermark verified.");

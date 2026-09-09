@@ -63,6 +63,7 @@
   --shadow-lg: 0 24px 52px -12px rgba(24, 28, 43, 0.16), 0 6px 16px -4px rgba(24, 28, 43, 0.06);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --watermark-opacity: 0.046;
 }
 
 html[data-theme="dark"] {
@@ -80,6 +81,7 @@ html[data-theme="dark"] {
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 14px 40px -6px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 28px 60px -12px rgba(0, 0, 0, 0.65);
+  --watermark-opacity: 0.042;
 }
 
 *,
@@ -110,8 +112,56 @@ body.lang-transitioning {
   opacity: 0.15;
 }
 
+/* Nastaliq Calligraphy Faded Background Watermark */
+body::before {
+  content: "";
+  position: fixed;
+  top: clamp(2.5rem, 8vh, 6.5rem);
+  left: clamp(-65px, -4vw, -28px);
+  width: clamp(320px, 46vw, 640px);
+  height: clamp(320px, 46vw, 640px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 0;
+  opacity: var(--watermark-opacity, 0.046);
+  background-image: url("../icons/risman-nastaliq.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
+  body::before {
+    background-image: none;
+    background-color: var(--page-text);
+    -webkit-mask-image: url("../icons/risman-nastaliq.png");
+    mask-image: url("../icons/risman-nastaliq.png");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: left top;
+    mask-position: left top;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+}
+
+.reader-page::before {
+  display: none !important;
+}
+
+#main-content {
+  position: relative;
+  z-index: 1;
+}
+
 body.nav-open {
   overflow: hidden;
+}
+
+body.nav-open::before {
+  filter: blur(14px);
+  opacity: calc(var(--watermark-opacity) * 0.55);
 }
 
 body.nav-open .site-header {

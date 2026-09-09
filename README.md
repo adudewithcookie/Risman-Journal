@@ -54,7 +54,8 @@ The project intentionally has no runtime dependencies and requires no build comm
 │   ├── css/
 │   │   └── styles.css
 │   ├── icons/
-│   │   └── risman-mark.png
+│   │   ├── risman-mark.png
+│   │   └── risman-nastaliq.png
 │   ├── issues/
 │   │   ├── issue-01.pdf
 │   │   └── issue-08.pdf
@@ -157,6 +158,7 @@ Edit `about/index.html`. The replaceable journal copy is marked by these comment
 
 - Header mark: `assets/icons/risman-mark.png`
 - Favicon: `assets/icons/risman-mark.png`
+- Background watermark: `assets/icons/risman-nastaliq.png`
 - Social preview: `assets/social/risman-og.jpg`
 
 The recommended social-preview size is `1200 × 630 px`.
