@@ -13,5 +13,6 @@ console.assert(html[0].includes("Where it all began") && html[0].includes('class
 console.assert(html.every((page) => page.includes('rel="icon"') && page.includes("risman-mark.png")), "Every page must have risman-mark favicon");
 console.assert(html.every((page) => !page.toLowerCase().includes("independent")), "No page should describe the journal as independent");
 console.assert(html.every((page) => !page.includes("Psychology · Mind · Society")), "Tagline 'Psychology · Mind · Society' must be removed");
+console.assert(html[1].includes("Nov 11, 2023"), "About page must have Nov 11, 2023 foundation date");
 
 console.log("Site feature check passed: theme, mark, origin globe, favicon, and brand tone verified.");
