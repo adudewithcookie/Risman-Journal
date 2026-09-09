@@ -83,25 +83,16 @@
             </div>
             
             <div class="map-canvas-container">
-              <canvas id="tehran-map-canvas" class="dynamic-vector-map" aria-label="Dynamic Earth Globe and Map of Tehran pointing to Science and Research Branch"></canvas>
-              <div class="map-radar-pin" aria-hidden="true">
-                <div class="radar-ring"></div>
-                <div class="radar-ring"></div>
-                <div class="radar-core"></div>
-              </div>
-              <div class="map-floating-tag" aria-hidden="true">
-                <span data-i18n="map-tag-sub">Birthplace</span>
-                <strong data-i18n="map-tag-title">Faculty of Humanities</strong>
-              </div>
+              <canvas id="tehran-map-canvas" class="dynamic-vector-map" aria-label="Dynamic Earth Globe pointing to Science and Research Branch"></canvas>
             </div>
 
             <div class="map-controls-bar">
               <div class="map-meta-tags">
                 <span data-i18n="map-meta-elev">1,780m ALT</span>
               </div>
-              <div class="map-zoom-buttons">
-                <button id="map-btn-globe" class="map-btn active" type="button" data-i18n="map-btn-overview">From space</button>
-                <button id="map-btn-campus" class="map-btn" type="button" data-i18n="map-btn-campus">Even closer</button>
+              <div class="map-hint-pill">
+                <span class="map-hint-dot" aria-hidden="true"></span>
+                <span data-i18n="map-hint-rotate">Drag to rotate</span>
               </div>
             </div>
             <div class="origin-globe" style="display:none" aria-hidden="true">Where it all began</div>

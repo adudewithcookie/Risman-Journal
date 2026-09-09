@@ -12,14 +12,12 @@ console.assert(css.includes('--font-body-fa: "IRANSans"'), "CSS must define --fo
 console.assert(css.includes('html[dir="rtl"] .display-title'), "CSS must assign Persian font to Persian titles");
 console.assert(css.includes('html[dir="rtl"] .wordmark'), "CSS must preserve Latin font for brand wordmark");
 
-// 2. Accurate Map Coordinates & Paul Stamatiou-style Map with Earth Globe
+// 2. Accurate Map Coordinates & Earth Globe (without deleted 'even closer' section)
 console.assert(html[0].includes("35.7978° N") && html[0].includes("51.3205° E"), "Home map must have accurate SRBIAU coordinates");
 console.assert(html[0].includes('id="tehran-map-canvas"'), "Home must have dynamic map canvas");
-console.assert(html[0].includes('id="map-btn-globe"') && html[0].includes('id="map-btn-campus"'), "Map card must have globe and campus zoom buttons");
 console.assert(html[0].includes("1,780m ALT"), "Map card must include accurate altitude");
 console.assert(html[0].includes("Where it all began"), "Map header must say 'Where it all began'");
-console.assert(html[0].includes("From space"), "Map button must say 'From space'");
-console.assert(html[0].includes("Even closer"), "Map button must say 'Even closer'");
+console.assert(!html[0].includes("map-btn-campus") && !html[0].includes("Even closer"), "'Even closer' section must be deleted");
 console.assert(!html[0].includes("map-flag-icon"), "Iran flag icon must be deleted from map card");
 
 // 3. Premium Editorial Typography Effects & Mobile Menu Blur

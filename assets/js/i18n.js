@@ -10,6 +10,13 @@
     "nav-issues": "شماره‌ها",
     "nav-about": "درباره ما",
     "menu-label": "منو",
+    "menu-close": "بستن",
+    "nav-pages-heading": "صفحات",
+    "nav-options-heading": "تنظیمات",
+    "menu-option-lang": "زبان",
+    "menu-option-theme": "حالت نمایش",
+    "theme-light": "روشن",
+    "theme-dark": "تاریک",
     "back-to-home": "بازگشت به صفحه اصلی",
 
     // Home: Hero
@@ -26,6 +33,7 @@
     "map-sub": "علوم و تحقیقات · دانشکده علوم انسانی",
     "map-tag-sub": "محل تولد ریسمان",
     "map-meta-foothills": "تهران",
+    "map-hint-rotate": "برای چرخش بکشید",
     "map-btn-campus": "نمای نزدیک‌تر",
     "map-btn-overview": "از فضا",
     "location-info": "تهران، ایران<br>دانشگاه آزاد واحد علوم و تحقیقات<br>دانشکده علوم انسانی",
@@ -143,16 +151,17 @@
       });
 
       // Update toggle button text
-      var btn = document.querySelector(".lang-toggle");
-      if (btn) {
+      document.querySelectorAll(".lang-toggle").forEach(function (btn) {
         btn.textContent = lang === "fa" ? "EN" : "فا";
         btn.setAttribute("aria-label", lang === "fa" ? "Switch to English" : "تغییر به فارسی");
-      }
+      });
 
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
 
       if (window.renderIssues) window.renderIssues();
       if (window.renderMap) window.renderMap();
+      if (window.rismanUpdateNavOptions) window.rismanUpdateNavOptions();
+      if (window.rismanUpdateNavToggleLabel) window.rismanUpdateNavToggleLabel();
 
       requestAnimationFrame(function () {
         if (b) b.classList.remove("lang-transitioning");
@@ -162,14 +171,13 @@
 
   /** Wire up the toggle button + apply stored language. */
   function init() {
-    var btn = document.querySelector(".lang-toggle");
-    if (btn) {
+    document.querySelectorAll(".lang-toggle").forEach(function (btn) {
       btn.textContent = getLang() === "fa" ? "EN" : "فا";
       btn.setAttribute("aria-label", getLang() === "fa" ? "Switch to English" : "تغییر به فارسی");
       btn.addEventListener("click", function () {
         applyLang(getLang() === "fa" ? "en" : "fa");
       });
-    }
+    });
     if (getLang() === "fa") applyLang("fa");
   }
 

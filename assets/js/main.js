@@ -210,7 +210,6 @@
      Real-World Accurate GIS Vector Dataset for Earth Globe
      (Accurate coastlines and country borders based on Natural Earth data)
      ========================================================================== */
-  let currentMapMode = "globe";
   let globeLon = 51.32; // Centered on Tehran (51.32° E)
   let globeLat = 32.0;  // Center latitude
   let isDraggingGlobe = false;
@@ -322,27 +321,126 @@
   }
 
   const COSMIC_STARS = [
-    { x: 0.06, y: 0.12, r: 1.2, a: 0.8 },
-    { x: 0.14, y: 0.24, r: 0.8, a: 0.55 },
-    { x: 0.08, y: 0.52, r: 1.0, a: 0.65 },
-    { x: 0.04, y: 0.82, r: 1.4, a: 0.85, sparkle: true },
-    { x: 0.16, y: 0.88, r: 0.7, a: 0.45 },
-    { x: 0.24, y: 0.08, r: 0.9, a: 0.6 },
-    { x: 0.38, y: 0.12, r: 0.6, a: 0.4 },
-    { x: 0.62, y: 0.07, r: 1.1, a: 0.7 },
-    { x: 0.78, y: 0.14, r: 0.8, a: 0.5 },
-    { x: 0.92, y: 0.11, r: 1.5, a: 0.9, sparkle: true },
-    { x: 0.95, y: 0.36, r: 0.7, a: 0.45 },
-    { x: 0.88, y: 0.56, r: 1.1, a: 0.7 },
-    { x: 0.94, y: 0.78, r: 1.3, a: 0.8 },
-    { x: 0.84, y: 0.89, r: 0.9, a: 0.55 },
-    { x: 0.66, y: 0.94, r: 0.7, a: 0.4 },
-    { x: 0.44, y: 0.96, r: 1.0, a: 0.65 },
-    { x: 0.28, y: 0.93, r: 0.8, a: 0.5 },
-    { x: 0.03, y: 0.38, r: 1.5, a: 0.85, sparkle: true },
-    { x: 0.97, y: 0.91, r: 0.6, a: 0.4 },
-    { x: 0.86, y: 0.05, r: 0.8, a: 0.55 },
-    { x: 0.48, y: 0.05, r: 0.7, a: 0.45 }
+    { x: 0.021, y: 0.214, r: 1.2, a: 0.87, sparkle: true },
+    { x: 0.946, y: 0.142, r: 0.8, a: 0.51 },
+    { x: 0.804, y: 0.264, r: 1.1, a: 0.57 },
+    { x: 0.655, y: 0.852, r: 0.8, a: 0.57 },
+    { x: 0.484, y: 0.967, r: 1, a: 0.77 },
+    { x: 0.39, y: 0.619, r: 0.8, a: 0.77 },
+    { x: 0.473, y: 0.426, r: 0.7, a: 0.3 },
+    { x: 0.24, y: 0.815, r: 0.6, a: 0.38 },
+    { x: 0.913, y: 0.869, r: 1.6, a: 0.81, sparkle: true },
+    { x: 0.558, y: 0.724, r: 0.4, a: 0.73 },
+    { x: 0.936, y: 0.443, r: 0.8, a: 0.45 },
+    { x: 0.238, y: 0.478, r: 0.9, a: 0.48 },
+    { x: 0.884, y: 0.104, r: 0.8, a: 0.36 },
+    { x: 0.743, y: 0.6, r: 0.5, a: 0.46 },
+    { x: 0.038, y: 0.48, r: 0.7, a: 0.28 },
+    { x: 0.903, y: 0.029, r: 0.5, a: 0.74 },
+    { x: 0.617, y: 0.81, r: 1, a: 0.52 },
+    { x: 0.415, y: 0.309, r: 0.4, a: 0.51 },
+    { x: 0.299, y: 0.05, r: 0.8, a: 0.73 },
+    { x: 0.152, y: 0.903, r: 1.5, a: 0.88, sparkle: true },
+    { x: 0.223, y: 0.412, r: 0.6, a: 0.76 },
+    { x: 0.624, y: 0.166, r: 0.4, a: 0.6 },
+    { x: 0.576, y: 0.423, r: 0.5, a: 0.26 },
+    { x: 0.732, y: 0.804, r: 0.6, a: 0.43 },
+    { x: 0.196, y: 0.843, r: 0.6, a: 0.67 },
+    { x: 0.486, y: 0.57, r: 0.5, a: 0.56 },
+    { x: 0.442, y: 0.186, r: 0.7, a: 0.63 },
+    { x: 0.275, y: 0.324, r: 0.6, a: 0.48 },
+    { x: 0.899, y: 0.115, r: 0.8, a: 0.4 },
+    { x: 0.15, y: 0.314, r: 0.6, a: 0.44 },
+    { x: 0.694, y: 0.359, r: 0.6, a: 0.75 },
+    { x: 0.871, y: 0.529, r: 1.5, a: 0.87, sparkle: true },
+    { x: 0.554, y: 0.721, r: 0.5, a: 0.61 },
+    { x: 0.801, y: 0.409, r: 0.9, a: 0.39 },
+    { x: 0.305, y: 0.629, r: 0.6, a: 0.26 },
+    { x: 0.514, y: 0.357, r: 0.5, a: 0.31 },
+    { x: 0.042, y: 0.608, r: 0.5, a: 0.76 },
+    { x: 0.89, y: 0.574, r: 0.8, a: 0.67 },
+    { x: 0.913, y: 0.22, r: 0.4, a: 0.77 },
+    { x: 0.457, y: 0.038, r: 0.4, a: 0.79 },
+    { x: 0.571, y: 0.197, r: 0.7, a: 0.76 },
+    { x: 0.061, y: 0.597, r: 0.7, a: 0.44 },
+    { x: 0.206, y: 0.804, r: 1.1, a: 0.33 },
+    { x: 0.615, y: 0.042, r: 0.6, a: 0.73 },
+    { x: 0.622, y: 0.966, r: 0.8, a: 0.68 },
+    { x: 0.578, y: 0.439, r: 1.4, a: 0.96, sparkle: true },
+    { x: 0.334, y: 0.256, r: 0.4, a: 0.38 },
+    { x: 0.352, y: 0.876, r: 0.5, a: 0.32 },
+    { x: 0.506, y: 0.253, r: 0.6, a: 0.34 },
+    { x: 0.221, y: 0.634, r: 0.7, a: 0.68 },
+    { x: 0.343, y: 0.611, r: 0.4, a: 0.57 },
+    { x: 0.438, y: 0.79, r: 0.8, a: 0.64 },
+    { x: 0.372, y: 0.694, r: 0.5, a: 0.3 },
+    { x: 0.898, y: 0.029, r: 0.7, a: 0.28 },
+    { x: 0.17, y: 0.964, r: 0.6, a: 0.71 },
+    { x: 0.448, y: 0.903, r: 0.4, a: 0.61 },
+    { x: 0.334, y: 0.897, r: 1, a: 0.77 },
+    { x: 0.067, y: 0.233, r: 1, a: 0.55 },
+    { x: 0.643, y: 0.165, r: 1, a: 0.65 },
+    { x: 0.469, y: 0.558, r: 0.6, a: 0.74 },
+    { x: 0.916, y: 0.662, r: 0.6, a: 0.67 },
+    { x: 0.721, y: 0.355, r: 0.6, a: 0.44 },
+    { x: 0.878, y: 0.892, r: 1.4, a: 0.92, sparkle: true },
+    { x: 0.883, y: 0.15, r: 0.4, a: 0.56 },
+    { x: 0.304, y: 0.788, r: 0.7, a: 0.74 },
+    { x: 0.821, y: 0.894, r: 0.7, a: 0.53 },
+    { x: 0.628, y: 0.187, r: 0.5, a: 0.76 },
+    { x: 0.97, y: 0.127, r: 1, a: 0.38 },
+    { x: 0.904, y: 0.189, r: 1, a: 0.63 },
+    { x: 0.621, y: 0.076, r: 0.6, a: 0.38 },
+    { x: 0.706, y: 0.784, r: 0.4, a: 0.79 },
+    { x: 0.626, y: 0.914, r: 0.4, a: 0.45 },
+    { x: 0.97, y: 0.438, r: 0.8, a: 0.56 },
+    { x: 0.623, y: 0.81, r: 0.8, a: 0.78 },
+    { x: 0.483, y: 0.185, r: 1, a: 0.54 },
+    { x: 0.966, y: 0.049, r: 0.6, a: 0.35 },
+    { x: 0.844, y: 0.805, r: 0.7, a: 0.63 },
+    { x: 0.763, y: 0.256, r: 1.4, a: 0.94, sparkle: true },
+    { x: 0.392, y: 0.856, r: 0.5, a: 0.37 },
+    { x: 0.157, y: 0.627, r: 0.5, a: 0.47 },
+    { x: 0.895, y: 0.657, r: 0.5, a: 0.55 },
+    { x: 0.164, y: 0.677, r: 0.7, a: 0.78 },
+    { x: 0.549, y: 0.761, r: 0.5, a: 0.62 },
+    { x: 0.378, y: 0.223, r: 0.9, a: 0.44 },
+    { x: 0.025, y: 0.801, r: 0.6, a: 0.41 },
+    { x: 0.962, y: 0.438, r: 0.6, a: 0.32 },
+    { x: 0.05, y: 0.086, r: 1.1, a: 0.53 },
+    { x: 0.842, y: 0.75, r: 1, a: 0.73 },
+    { x: 0.232, y: 0.58, r: 0.8, a: 0.72 },
+    { x: 0.661, y: 0.157, r: 1, a: 0.37 },
+    { x: 0.324, y: 0.613, r: 0.4, a: 0.58 },
+    { x: 0.353, y: 0.178, r: 1.3, a: 0.94, sparkle: true },
+    { x: 0.705, y: 0.761, r: 0.6, a: 0.32 },
+    { x: 0.876, y: 0.169, r: 1, a: 0.42 },
+    { x: 0.967, y: 0.275, r: 0.8, a: 0.29 },
+    { x: 0.424, y: 0.541, r: 0.5, a: 0.66 },
+    { x: 0.021, y: 0.311, r: 0.5, a: 0.3 },
+    { x: 0.708, y: 0.854, r: 0.7, a: 0.34 },
+    { x: 0.115, y: 0.915, r: 0.7, a: 0.72 },
+    { x: 0.929, y: 0.699, r: 1, a: 0.63 },
+    { x: 0.736, y: 0.084, r: 0.5, a: 0.33 },
+    { x: 0.539, y: 0.776, r: 1.1, a: 0.79 },
+    { x: 0.113, y: 0.016, r: 0.6, a: 0.61 },
+    { x: 0.777, y: 0.848, r: 0.7, a: 0.77 },
+    { x: 0.872, y: 0.532, r: 1.3, a: 0.94, sparkle: true },
+    { x: 0.324, y: 0.261, r: 0.6, a: 0.27 },
+    { x: 0.91, y: 0.783, r: 0.5, a: 0.67 },
+    { x: 0.51, y: 0.919, r: 0.6, a: 0.43 },
+    { x: 0.654, y: 0.799, r: 0.7, a: 0.41 },
+    { x: 0.269, y: 0.8, r: 0.6, a: 0.5 },
+    { x: 0.681, y: 0.181, r: 1, a: 0.62 },
+    { x: 0.647, y: 0.197, r: 0.6, a: 0.41 },
+    { x: 0.96, y: 0.185, r: 0.5, a: 0.72 },
+    { x: 0.572, y: 0.287, r: 0.6, a: 0.36 },
+    { x: 0.979, y: 0.261, r: 0.7, a: 0.64 },
+    { x: 0.731, y: 0.674, r: 0.4, a: 0.8 },
+    { x: 0.891, y: 0.101, r: 1, a: 0.3 },
+    { x: 0.573, y: 0.82, r: 1.3, a: 0.98, sparkle: true },
+    { x: 0.717, y: 0.725, r: 0.9, a: 0.58 },
+    { x: 0.119, y: 0.132, r: 0.8, a: 0.65 }
   ];
 
   function renderGlobe(ctx, w, h, isDark) {
@@ -505,110 +603,6 @@
     }
   }
 
-  /* ==========================================================================
-     Accurate Minimalist Campus Map (Faculty of Humanities, SRBIAU, Hesarak)
-     ========================================================================== */
-  function renderCampusMap(ctx, w, h, isDark) {
-    const bg = isDark ? "#101420" : "#ece6d3";
-    const mountainBg = isDark ? "#0d101a" : "#ded6bf";
-    const roadColor = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(24, 28, 43, 0.09)";
-    const mainRoadColor = isDark ? "rgba(184, 141, 76, 0.35)" : "rgba(184, 141, 76, 0.5)";
-    const contourColor = isDark ? "rgba(255, 255, 255, 0.04)" : "rgba(24, 28, 43, 0.06)";
-    const gridLine = isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(24, 28, 43, 0.04)";
-
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, w, h);
-
-    // Alborz Mountain Contour (North of Tehran)
-    ctx.fillStyle = mountainBg;
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(w, 0);
-    ctx.lineTo(w, h * 0.38);
-    ctx.bezierCurveTo(w * 0.7, h * 0.28, w * 0.4, h * 0.44, 0, h * 0.34);
-    ctx.closePath();
-    ctx.fill();
-
-    // Elevation Lines
-    ctx.strokeStyle = contourColor;
-    ctx.lineWidth = 1;
-    for (let i = 1; i <= 5; i++) {
-      ctx.beginPath();
-      ctx.moveTo(0, h * (0.07 * i));
-      ctx.bezierCurveTo(w * 0.35, h * (0.07 * i + 0.04), w * 0.65, h * (0.06 * i), w, h * (0.08 * i));
-      ctx.stroke();
-    }
-
-    // Grid Coordinates
-    ctx.strokeStyle = gridLine;
-    ctx.lineWidth = 0.75;
-    const step = 28;
-    for (let x = 0; x < w; x += step) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, h);
-      ctx.stroke();
-    }
-    for (let y = 0; y < h; y += step) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(w, y);
-      ctx.stroke();
-    }
-
-    // Arteries: Niayesh & Hemmat
-    ctx.strokeStyle = mainRoadColor;
-    ctx.lineWidth = 2.4;
-    ctx.lineCap = "round";
-
-    // Hashemi Rafsanjani (Niayesh)
-    ctx.beginPath();
-    ctx.moveTo(0, h * 0.68);
-    ctx.bezierCurveTo(w * 0.3, h * 0.64, w * 0.7, h * 0.60, w, h * 0.54);
-    ctx.stroke();
-
-    // Hemmat
-    ctx.beginPath();
-    ctx.moveTo(0, h * 0.88);
-    ctx.bezierCurveTo(w * 0.4, h * 0.84, w * 0.7, h * 0.80, w, h * 0.74);
-    ctx.stroke();
-
-    // Sattari & Bakeri
-    ctx.strokeStyle = roadColor;
-    ctx.lineWidth = 1.8;
-    ctx.beginPath();
-    ctx.moveTo(w * 0.32, 0);
-    ctx.lineTo(w * 0.40, h);
-    ctx.stroke();
-
-    // Hesarak Blvd up to SRBIAU
-    ctx.strokeStyle = isDark ? "rgba(184, 141, 76, 0.75)" : "rgba(184, 141, 76, 0.9)";
-    ctx.lineWidth = 2;
-    ctx.setLineDash([4, 3]);
-    ctx.beginPath();
-    ctx.moveTo(w * 0.36, h * 0.64);
-    ctx.lineTo(w * 0.50, h * 0.42);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Faculty of Humanities Building Marker
-    ctx.fillStyle = "#b88d4c";
-    ctx.beginPath();
-    ctx.arc(w * 0.50, h * 0.42, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = "#fff";
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Label on map
-    ctx.fillStyle = isDark ? "#ffffff" : "#181c2b";
-    ctx.font = "bold 11px var(--sans)";
-    ctx.fillText("Faculty of Humanities", w * 0.50 + 12, h * 0.42 + 4);
-    ctx.fillStyle = isDark ? "rgba(255,255,255,0.6)" : "rgba(24,28,43,0.65)";
-    ctx.font = "9px var(--sans)";
-    ctx.fillText("SRBIAU Campus · 1,780m", w * 0.50 + 12, h * 0.42 + 16);
-  }
-
   function renderMap() {
     const canvas = document.querySelector("#tehran-map-canvas");
     if (!canvas) return;
@@ -627,18 +621,14 @@
     const w = rect.width;
     const h = rect.height;
 
-    if (currentMapMode === "globe") {
-      renderGlobe(ctx, w, h, isDark);
-    } else {
-      renderCampusMap(ctx, w, h, isDark);
-    }
+    renderGlobe(ctx, w, h, isDark);
   }
 
   function startGlobeAnimation() {
     if (animFrameId) cancelAnimationFrame(animFrameId);
 
     function tick() {
-      if (currentMapMode === "globe" && !isInteracting) {
+      if (!isInteracting) {
         globeLon += globeVelocity;
         if (globeLon > 180) globeLon -= 360;
         if (globeLon < -180) globeLon += 360;
@@ -653,21 +643,22 @@
     const canvas = document.querySelector("#tehran-map-canvas");
     if (!canvas) return;
 
+    canvas.style.cursor = "grab";
     window.addEventListener("resize", renderMap);
     renderMap();
     startGlobeAnimation();
 
     // Mouse spin & drag
     canvas.addEventListener("mousedown", (e) => {
-      if (currentMapMode !== "globe") return;
       isDraggingGlobe = true;
       isInteracting = true;
+      canvas.style.cursor = "grabbing";
       lastPointerX = e.clientX;
       lastPointerY = e.clientY;
     });
 
     window.addEventListener("mousemove", (e) => {
-      if (!isDraggingGlobe || currentMapMode !== "globe") return;
+      if (!isDraggingGlobe) return;
       const deltaX = e.clientX - lastPointerX;
       const deltaY = e.clientY - lastPointerY;
       lastPointerX = e.clientX;
@@ -682,13 +673,14 @@
     window.addEventListener("mouseup", () => {
       if (isDraggingGlobe) {
         isDraggingGlobe = false;
+        canvas.style.cursor = "grab";
         setTimeout(() => { isInteracting = false; }, 1500);
       }
     });
 
     // Touch support for dragging & spinning
     canvas.addEventListener("touchstart", (e) => {
-      if (currentMapMode !== "globe" || !e.touches.length) return;
+      if (!e.touches.length) return;
       isDraggingGlobe = true;
       isInteracting = true;
       lastPointerX = e.touches[0].clientX;
@@ -696,7 +688,7 @@
     }, { passive: true });
 
     canvas.addEventListener("touchmove", (e) => {
-      if (!isDraggingGlobe || currentMapMode !== "globe" || !e.touches.length) return;
+      if (!isDraggingGlobe || !e.touches.length) return;
       const deltaX = e.touches[0].clientX - lastPointerX;
       const deltaY = e.touches[0].clientY - lastPointerY;
       lastPointerX = e.touches[0].clientX;
@@ -712,48 +704,35 @@
       isDraggingGlobe = false;
       setTimeout(() => { isInteracting = false; }, 1500);
     });
-
-    const globeBtn = document.querySelector("#map-btn-globe") || document.querySelector("#map-btn-overview");
-    const campusBtn = document.querySelector("#map-btn-campus");
-
-    if (globeBtn) {
-      globeBtn.addEventListener("click", () => {
-        currentMapMode = "globe";
-        globeBtn.classList.add("active");
-        if (campusBtn) campusBtn.classList.remove("active");
-        renderMap();
-      });
-    }
-
-    if (campusBtn) {
-      campusBtn.addEventListener("click", () => {
-        currentMapMode = "campus";
-        campusBtn.classList.add("active");
-        if (globeBtn) globeBtn.classList.remove("active");
-        renderMap();
-      });
-    }
   }
 
   function setupTheme() {
-    const toggle = document.querySelector(".theme-toggle");
-    if (!toggle) return;
-
+    const toggles = document.querySelectorAll(".theme-toggle");
     const themeColor = document.querySelector('meta[name="theme-color"]');
+
     const applyTheme = (theme, persist) => {
       document.documentElement.dataset.theme = theme;
-      toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
-      toggle.setAttribute("aria-pressed", String(theme === "dark"));
+      toggles.forEach((toggle) => {
+        toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
+        toggle.setAttribute("aria-pressed", String(theme === "dark"));
+      });
+      document.querySelectorAll("[data-theme-choice]").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.themeChoice === theme);
+      });
       if (themeColor) themeColor.content = theme === "dark" ? "#0F131F" : "#F4F3EA";
       if (persist) {
         try { localStorage.setItem("risman-theme", theme); } catch (_error) {}
       }
-      renderMap();
+      if (window.renderMap) renderMap();
     };
 
+    window.rismanApplyTheme = applyTheme;
+
     applyTheme(document.documentElement.dataset.theme || "light", false);
-    toggle.addEventListener("click", () => {
-      applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+      });
     });
   }
 
@@ -765,28 +744,102 @@
     const nav = document.querySelector(".site-nav");
     if (!toggle || !nav) return;
 
+    // Inject mobile options section inside site-nav if not already present
+    if (!nav.querySelector(".nav-options")) {
+      const currentTheme = document.documentElement.dataset.theme || "light";
+      const currentLang = (window.RISMAN_I18N && window.RISMAN_I18N.getLang()) || "en";
+
+      const options = document.createElement("div");
+      options.className = "nav-options";
+      options.innerHTML = `
+        <span class="nav-options-heading" data-i18n="nav-options-heading">Options</span>
+        <div class="nav-option-row">
+          <span class="nav-option-label" data-i18n="menu-option-lang">Language</span>
+          <div class="nav-choice-group" role="group" aria-label="Language selection">
+            <button type="button" class="nav-choice-btn ${currentLang === "en" ? "active" : ""}" data-lang-choice="en">English</button>
+            <button type="button" class="nav-choice-btn ${currentLang === "fa" ? "active" : ""}" data-lang-choice="fa">فارسی</button>
+          </div>
+        </div>
+        <div class="nav-option-row">
+          <span class="nav-option-label" data-i18n="menu-option-theme">Theme</span>
+          <div class="nav-choice-group" role="group" aria-label="Theme selection">
+            <button type="button" class="nav-choice-btn ${currentTheme === "light" ? "active" : ""}" data-theme-choice="light" data-i18n="theme-light">Light</button>
+            <button type="button" class="nav-choice-btn ${currentTheme === "dark" ? "active" : ""}" data-theme-choice="dark" data-i18n="theme-dark">Dark</button>
+          </div>
+        </div>
+      `;
+
+      options.addEventListener("click", (e) => {
+        const langBtn = e.target.closest("[data-lang-choice]");
+        if (langBtn && window.RISMAN_I18N) {
+          window.RISMAN_I18N.applyLang(langBtn.dataset.langChoice);
+          updateNavOptions();
+          updateToggleLabel();
+          return;
+        }
+
+        const themeBtn = e.target.closest("[data-theme-choice]");
+        if (themeBtn && window.rismanApplyTheme) {
+          window.rismanApplyTheme(themeBtn.dataset.themeChoice, true);
+          updateNavOptions();
+        }
+      });
+
+      nav.appendChild(options);
+    }
+
+    const updateNavOptions = () => {
+      const currentLang = (window.RISMAN_I18N && window.RISMAN_I18N.getLang()) || "en";
+      const currentTheme = document.documentElement.dataset.theme || "light";
+      nav.querySelectorAll("[data-lang-choice]").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.langChoice === currentLang);
+      });
+      nav.querySelectorAll("[data-theme-choice]").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.themeChoice === currentTheme);
+      });
+    };
+    window.rismanUpdateNavOptions = updateNavOptions;
+
+    const updateToggleLabel = () => {
+      const isFa = isPersian();
+      const isOpen = body.classList.contains("nav-open");
+      const label = toggle.querySelector(".nav-toggle-label");
+      if (label) {
+        label.textContent = isOpen ? (isFa ? "بستن" : "Close") : (isFa ? "منو" : "Menu");
+      }
+    };
+    window.rismanUpdateNavToggleLabel = updateToggleLabel;
+
     const close = () => {
       body.classList.remove("nav-open");
       toggle.setAttribute("aria-expanded", "false");
-      const label = toggle.querySelector(".nav-toggle-label");
-      if (label) label.textContent = "Menu";
+      updateToggleLabel();
     };
 
     toggle.addEventListener("click", () => {
       const isOpen = body.classList.toggle("nav-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
-      const label = toggle.querySelector(".nav-toggle-label");
-      if (label) label.textContent = isOpen ? "Close" : "Menu";
+      updateToggleLabel();
+      updateNavOptions();
     });
+
     nav.addEventListener("click", (event) => {
-      if (event.target.closest("a")) close();
+      if (event.target.closest("a")) {
+        close();
+      } else if (event.target === nav) {
+        close();
+      }
     });
+
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         close();
         toggle.focus();
       }
     });
+
+    updateToggleLabel();
+    updateNavOptions();
   }
 
   async function setupReader() {
