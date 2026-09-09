@@ -10,5 +10,8 @@ console.assert(html.every((page) => page.includes("risman-mark.png")), "Every pa
 console.assert(css.includes('html[data-theme="dark"]'), "Dark theme tokens are missing");
 console.assert(js.includes('localStorage.setItem("risman-theme", theme)'), "Theme choice is not persisted");
 console.assert(html[0].includes("Where it all began") && html[0].includes('class="origin-globe"'), "Home origin globe is missing");
+console.assert(html.every((page) => page.includes('rel="icon"') && page.includes("risman-mark.png")), "Every page must have risman-mark favicon");
+console.assert(html.every((page) => !page.toLowerCase().includes("independent")), "No page should describe the journal as independent");
+console.assert(html.every((page) => !page.includes("Psychology · Mind · Society")), "Tagline 'Psychology · Mind · Society' must be removed");
 
-console.log("Site feature check passed: theme, mark, and origin globe are present.");
+console.log("Site feature check passed: theme, mark, origin globe, favicon, and brand tone verified.");

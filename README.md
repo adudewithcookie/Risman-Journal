@@ -1,6 +1,6 @@
 # Risman Journal
 
-The official website for **Risman**, an independent editorial journal exploring psychology, mind, and society.
+The official website for **Risman**, an editorial journal exploring psychology.
 
 Risman is designed as a quiet meeting point between an academic journal and a contemporary editorial magazine. Visitors can explore all eight issues and read each publication directly in the browser.
 
@@ -54,8 +54,7 @@ The project intentionally has no runtime dependencies and requires no build comm
 │   ├── css/
 │   │   └── styles.css
 │   ├── icons/
-│   │   ├── risman-mark.png
-│   │   └── favicon.svg (add before launch)
+│   │   └── risman-mark.png
 │   ├── issues/
 │   │   ├── issue-01.pdf
 │   │   └── issue-08.pdf
@@ -157,7 +156,7 @@ Edit `about/index.html`. The replaceable journal copy is marked by these comment
 ## Branding and social preview
 
 - Header mark: `assets/icons/risman-mark.png`
-- Favicon: `assets/icons/favicon.svg`
+- Favicon: `assets/icons/risman-mark.png`
 - Social preview: `assets/social/risman-og.jpg`
 
 The recommended social-preview size is `1200 × 630 px`.
